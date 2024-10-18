@@ -1,6 +1,6 @@
-以下是基於您的需求和提供的 POM 文件，用 Markdown 格式整理的市民卡系統前後端架構說明：
 
-# 市民卡系統架構
+
+# tizenCardProj市民卡 | 系統架構
 
 ## 前端架構 (Vue.js + Bootstrap)
 
