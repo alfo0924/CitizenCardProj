@@ -1,6 +1,6 @@
 
 
-# tizenCardProj市民卡 | 系統架構
+# CtizenCardProj市民卡 | 系統架構
 
 ## 前端架構 (Vue.js + Bootstrap)
 
