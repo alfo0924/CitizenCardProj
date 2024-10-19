@@ -31,18 +31,9 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("SELECT m FROM Member m WHERE m.firstName LIKE %:keyword% OR m.lastName LIKE %:keyword% OR m.email LIKE %:keyword%")
     List<Member> searchMembers(@Param("keyword") String keyword);
 
-    @Query("SELECT m FROM Member m JOIN m.citizenCard c WHERE c.cardNumber = :cardNumber")
-    Optional<Member> findByCardNumber(@Param("cardNumber") String cardNumber);
-
     @Query("SELECT COUNT(m) FROM Member m WHERE m.registerDate >= :startDate AND m.registerDate <= :endDate")
     long countMembersRegisteredBetween(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 
-    @Query("SELECT m FROM Member m WHERE m.wallet.balance > :minBalance")
-    List<Member> findMembersWithBalanceGreaterThan(@Param("minBalance") Double minBalance);
-
     @Query(value = "SELECT * FROM Members ORDER BY RAND() LIMIT :limit", nativeQuery = true)
     List<Member> findRandomMembers(@Param("limit") int limit);
-
-    @Query("SELECT m FROM Member m WHERE SIZE(m.bookings) > :bookingCount")
-    List<Member> findMembersWithMoreBookingsThan(@Param("bookingCount") int bookingCount);
 }

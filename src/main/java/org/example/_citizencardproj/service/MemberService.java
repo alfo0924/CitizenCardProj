@@ -40,8 +40,8 @@ public class MemberService {
         member.setLastName(memberDTO.getLastName());
         member.setRegisterDate(LocalDateTime.now());
         member.setRole(Member.Role.USER);
-        member.setIsVerified(false);
-        member.setIsActive(true);
+        member.setVerified(false);
+        member.setActive(true);
 
         Member savedMember = memberRepository.save(member);
         return convertToDTO(savedMember);
@@ -91,7 +91,7 @@ public class MemberService {
     public MemberDTO verifyMember(Long id) {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Member not found with id: " + id));
-        member.setIsVerified(true);
+        member.setVerified(true);
         Member verifiedMember = memberRepository.save(member);
         return convertToDTO(verifiedMember);
     }
@@ -120,8 +120,8 @@ public class MemberService {
         dto.setRegisterDate(member.getRegisterDate());
         dto.setLastLoginTime(member.getLastLoginTime());
         dto.setRole(member.getRole());
-        dto.setIsVerified(member.isVerified());
-        dto.setIsActive(member.isActive());
+        dto.setVerified(member.isVerified());
+        dto.setActive(member.isActive());
         // Do not set password in DTO for security reasons
         return dto;
     }
