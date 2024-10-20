@@ -8,15 +8,18 @@ import javax.persistence.*;
 @Table(name = "CitizenCards")
 public class CitizenCard {
     @Id
+    @Column(name = "CardNumber")
     private String cardNumber;
 
     @ManyToOne
     @JoinColumn(name = "MemberID")
     private Member member;
 
+    @Column(name = "HolderName")
     private String holderName;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "CardType")
     private CardType cardType;
 
     public enum CardType {

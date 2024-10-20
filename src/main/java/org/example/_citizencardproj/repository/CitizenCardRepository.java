@@ -4,5 +4,5 @@ import org.example._citizencardproj.entity.CitizenCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CitizenCardRepository extends JpaRepository<CitizenCard, String> {
-    CitizenCard findByMemberMemberID(Long memberID);
+    CitizenCard findByMemberId(Long memberId);  // Changed from findByMemberMemberID to findByMemberId
 }

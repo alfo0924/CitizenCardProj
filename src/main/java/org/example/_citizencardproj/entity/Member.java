@@ -44,8 +44,15 @@ public class Member {
     @Column(name = "IsActive")
     private boolean isActive;
 
-
     public enum Role {
         USER, ADMIN, MODERATOR
     }
+
+    // 添加一個接受 id 的構造函數
+    public Member(Long id) {
+        this.id = id;
+    }
+
+    // 無參數構造函數
+    public Member() {}
 }
